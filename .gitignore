@@ -17,4 +17,5 @@
 core.*
 cov-int/
 scan-results/
+test
 vgcore.*

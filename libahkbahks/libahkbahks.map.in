@@ -1,0 +1,15 @@
+libahkbahks.so.0 {
+	global: keystore_alloc;
+		keystore_init;
+		keystore_fini;
+		keystore_free;
+		keystore_keyring_new;
+		keystore_keyring_free;
+		keyring_add_key;
+		keyring_del_key;
+		keyring_get_key;
+	local:	*;
+};
+
+LIBAHKBAHKS_0.0 {
+} libahkbahks.so.0;

@@ -1,7 +1,7 @@
 SRCDIR = $(realpath .)
 TOPDIR = $(realpath .)
 
-default: clean all
+default: clean all test
 
 include $(TOPDIR)/mk/version.mk
 include $(TOPDIR)/mk/rules.mk
@@ -11,6 +11,7 @@ include $(TOPDIR)/mk/scan-build.mk
 include $(TOPDIR)/mk/test.mk
 
 SUBDIRS := include libahkbahks
+TARGETS = test
 
 install :
 	$(INSTALL) -d -m 755 $(INSTALLROOT)$(docdir)/libahkbahks-$(VERSION)/
