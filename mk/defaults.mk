@@ -50,6 +50,7 @@ CPPFLAGS += -I$(TOPDIR)/include/ -std=gnu11 \
 	    -Wno-unused-function \
 	    -Wno-unused-parameter \
 	    -Wno-missing-field-initializers \
+	    -Wno-nonnull-compare \
 	    -Werror -Wno-error=cpp \
 	    $(if $(filter $(CC),clang),$(clang_cppflags), ) \
 	    $(if $(filter $(CC),gcc),$(gcc_cppflags), ) \
