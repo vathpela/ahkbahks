@@ -8,6 +8,7 @@
 
 #include "fix_coverity.h"
 
+#include "canary.h"
 #include "compiler.h"
 #include "debug.h"
 #include "endian.h"

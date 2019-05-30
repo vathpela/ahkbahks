@@ -10,6 +10,7 @@ static void CONSTRUCTOR
 ahkbahks_ctor(void)
 {
 	debug_ctor();
+	canaries_ctor();
 }
 
 static void DESTRUCTOR
