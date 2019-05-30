@@ -20,7 +20,7 @@ CROSS_COMPILE	?=
 PKG_CONFIG ?= $(CROSS_COMPILE)pkg-config
 CC	:= $(if $(filter default,$(origin CC)),$(CROSS_COMPILE)gcc,$(CC))
 CCLD	:= $(if $(filter undefined,$(origin CCLD)),$(CC),$(CCLD))
-CFLAGS	?= -Og -g3 -flto -fPIE
+CFLAGS	?= -Og -g3 -flto -fPIC
 AS	?= $(CROSS_COMPILE)as
 AR	?= $(CROSS_COMPILE)$(if $(filter $(CC),clang),llvm-ar,$(notdir $(CC))-ar)
 RANLIB	?= $(CROSS_COMPILE)$(if $(filter $(CC),clang),llvm-ranlib,$(notdir $(CC))-ranlib)
@@ -35,7 +35,7 @@ PKGS	=
 HOSTARCH   := $(shell uname -m | sed s,i[3456789]86,i686,)
 ARCH	   ?= $(shell uname -m | sed s,i[3456789]86,i686,)
 
-SOFLAGS	?= -shared -fPIE
+SOFLAGS	?= -shared -fPIC
 AFLAGS = $(filter-out -flto,$(CFLAGS)) -static -Wl,-static
 
 clang_cppflags =
