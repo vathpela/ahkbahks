@@ -5,21 +5,14 @@ include $(TOPDIR)/mk/version.mk
 include $(TOPDIR)/mk/defaults.mk
 include $(TOPDIR)/mk/rules.mk
 
-LIBTARGETS=libahkbahks.so
-STATICLIBTARGETS=libahkbahks.a
-TARGETS=$(LIBTARGETS) $(STATICLIBTARGETS)
+LIBTARGETS=libahkbahks.so.$(VERSION)
+TARGETS=$(LIBTARGETS)
 
 LIBAHKBAHKS_SOURCES = $(sort $(wildcard *.c))
 ALL_SOURCES=$(LIBAHKBAHKS_SOURCES)
 -include $(call deps-of,$(ALL_SOURCES))
 
 all : deps $(TARGETS)
-
-libahkbahks.a : $(patsubst %.o,%.static.o,$(call objects-of,$(LIBAHKBAHKS_SOURCES)))
-libahkbahks.a : | $(wildcard *.h) $(wildcard $(TOPDIR)/include/*.h)
-libahkbahks.a : | libahkbahks.map
-libahkbahks.a : LIBS= #LIBS=pthread
-libahkbahks.a : MAP=libahkbahks.map
 
 libahkbahks.so : $(call objects-of,$(LIBAHKBAHKS_SOURCES))
 libahkbahks.so : | $(wildcard *.h) $(wildcard $(TOPDIR)/include/*.h)
