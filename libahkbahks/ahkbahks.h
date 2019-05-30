@@ -9,6 +9,7 @@
 #include "fix_coverity.h"
 
 #include "compiler.h"
+#include "debug.h"
 #include "endian.h"
 #include "errno-guard.h"
 #include "list.h"
