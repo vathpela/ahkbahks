@@ -14,10 +14,10 @@ ALL_SOURCES=$(LIBAHKBAHKS_SOURCES)
 
 all : deps $(TARGETS)
 
-libahkbahks.so : $(call objects-of,$(LIBAHKBAHKS_SOURCES))
+libahkbahks.so : $(patsubst %.o,%.c,$(call objects-of,$(LIBAHKBAHKS_SOURCES)))
 libahkbahks.so : | $(wildcard *.h) $(wildcard $(TOPDIR)/include/*.h)
 libahkbahks.so : | libahkbahks.map
-libahkbahks.so : LIBS= #LIBS=pthread
+libahkbahks.so : LIBS=
 libahkbahks.so : MAP=libahkbahks.map
 
 deps : $(ALL_SOURCES)
