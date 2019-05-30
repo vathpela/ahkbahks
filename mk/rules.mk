@@ -35,7 +35,8 @@ test :
 	$(CCLD) $(CCLDFLAGS) $(SOFLAGS) \
 		-Wl,-soname,$(subst .so.$(VERSION),.so.$(MAJOR_VERSION),$@) \
 		-Wl,--version-script=$(MAP) \
-		-o $@ $^ $(LDLIBS)
+		-o $@ $^ $(LDLIBS) \
+		$(foreach x,$(wildcard $(patsubst %.so,%.lds,$@)),-T $(x))
 
 %.abixml : %.so
 	$(ABIDW) --headers-dir $(TOPDIR)/include/ --out-file $@ $^
